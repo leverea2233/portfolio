@@ -1,7 +1,7 @@
 // ==========================================
-// 1. VARIABLES GLOBALES (ORDEN CRÍTICO)
+// 1. VARIABLES GLOBALES (DB_KEY ACTUALIZADA)
 // ==========================================
-const DB_KEY = 'leonardo_portfolio_final_v1';
+const DB_KEY = 'leonardo_portfolio_v_FINAL_MINUSCULAS'; 
 let activeType = null;
 let currentCat = '';
 let isViewMode = false;
@@ -45,26 +45,27 @@ const defaultData = {
             <div class="cargo-header-grid">
                 <div><strong>01 YOGÜRT</strong><br>Cofundador</div>
                 <div>Ciudad de México, 2022</div>
-                <div>YOGÜRT una productora audiovisual independiente enfocada en la creación de cortometrajes y piezas experimentales con una identidad visual propia. Dentro del proyecto me encargué de la dirección creativa, el desarrollo de ideas y guiones, así como de la producción y edición de los trabajos. También coordiné procesos de rodaje y colaboraciones con otros creadores, impulsando un enfoque autoral en cada pieza. El proyecto funciona como un espacio de exploración narrativa y estética, donde he podido consolidar habilidades de dirección, storytelling y construcción de proyectos audiovisuales desde cero.</div>
+                <div>YOGÜRT una productora audiovisual independiente enfocada en la creación de cortometrajes y piezas experimentales con una identidad visual propia...</div>
             </div>
         </div>`,
         text_prod2: `<div class="content-padding cargo-line-block" style="margin-top: 20px;">
             <div class="cargo-header-grid">
                 <div><strong>02 Rovers-At-Large</strong><br>Fundador</div>
                 <div>Ciudad de México, 2024</div>
-                <div>Rovers-At-Large es un colectivo y plataforma editorial fundada como un espacio de visibilización de la otredad dentro de escenas creativas contemporáneas. Funciona como una revista multidisciplinaria que reúne fotografía, textos, divulgación cultural, guiones para cortometrajes en búsqueda de financiamiento, así como propuestas de moda y diseño gráfico de artistas emergentes. El proyecto se sitúa principalmente en ciudades con escenas artísticas vibrantes y alternativas, como la CDMX, conectando con una comunidad joven de 18 a 30 años vinculada a disciplinas creativas y culturales. Su enfoque se centra en la exploración de identidades no normativas, lo estético de la contradicción y la construcción de una comunidad alrededor de lo "otro", entendido como aquello fuera del estándar visual, social y cultural. Dentro del proyecto me encargué de la dirección general, la curaduría de contenidos y la coordinación de colaboradores, desarrollando una plataforma con una fuerte carga estética, conceptual y cultural.</div>
+                <div>Rovers-At-Large es un colectivo y plataforma editorial fundada como un espacio de visibilización de la otredad...</div>
             </div>
         </div>`
     },
+    // TODO EN MINÚSCULAS (.jpg)
     architecture: { images: Array.from({length: 20}, (_, i) => `img/architecture/${i+1}.jpg`) },
     artistic: { images: Array.from({length: 20}, (_, i) => `img/artistic/${i+1}.jpg`) },
     modeling: { 
         images: [
-            "img/modeling/DSC_6197.jpg", "img/modeling/DSC_6199.jpg", "img/modeling/DSC_6243.jpg", "img/modeling/DSC_7557.jpg", "img/modeling/DSC_7560.jpg",
-            "img/modeling/DSC_7652-3.jpg", "img/modeling/DSC_7685.jpg", "img/modeling/DSC_7697.jpg", "img/modeling/DSC_7699.jpg", "img/modeling/DSC_7747.jpg",
-            "img/modeling/DSC_7750.jpg", "img/modeling/DSC_7773.jpg", "img/modeling/DSC_7822.jpg", "img/modeling/DSC_7920.jpg", "img/modeling/DSC_8032.jpg",
-            "img/modeling/DSC_8060.jpg", "img/modeling/DSC_8114.jpg", "img/modeling/DSC_8201.jpg", "img/modeling/DSC_8308.jpg", "img/modeling/DSC_8358.jpg",
-            "img/modeling/IMG_3799.jpg", "img/modeling/IMG_3812.jpg", "img/modeling/IMG_3855.jpg", "img/modeling/IMG_3883.jpg"
+            "img/modeling/dsc_6197.jpg", "img/modeling/dsc_6199.jpg", "img/modeling/dsc_6243.jpg", "img/modeling/dsc_7557.jpg", "img/modeling/dsc_7560.jpg",
+            "img/modeling/dsc_7652-3.jpg", "img/modeling/dsc_7685.jpg", "img/modeling/dsc_7697.jpg", "img/modeling/dsc_7699.jpg", "img/modeling/dsc_7747.jpg",
+            "img/modeling/dsc_7750.jpg", "img/modeling/dsc_7773.jpg", "img/modeling/dsc_7822.jpg", "img/modeling/dsc_7920.jpg", "img/modeling/dsc_8032.jpg",
+            "img/modeling/dsc_8060.jpg", "img/modeling/dsc_8114.jpg", "img/modeling/dsc_8201.jpg", "img/modeling/dsc_8308.jpg", "img/modeling/dsc_8358.jpg",
+            "img/modeling/img_3799.jpg", "img/modeling/img_3812.jpg", "img/modeling/img_3855.jpg", "img/modeling/img_3883.jpg"
         ] 
     },
     exp_yogurt: { 
@@ -90,7 +91,7 @@ const defaultData = {
 };
 
 // ==========================================
-// 2. LÓGICA DE FUNCIONAMIENTO
+// 2. INICIALIZACIÓN Y FUNCIONES
 // ==========================================
 let currentData = defaultData;
 
