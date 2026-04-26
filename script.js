@@ -1,7 +1,7 @@
 // ==========================================
-// 1. VARIABLES GLOBALES (ESTO ARREGLA LOS ERRORES)
+// 1. VARIABLES GLOBALES (ORDEN CRÍTICO)
 // ==========================================
-const DB_KEY = 'leonardo_portfolio_v125';
+const DB_KEY = 'leonardo_portfolio_final_v1';
 let activeType = null;
 let currentCat = '';
 let isViewMode = false;
@@ -10,54 +10,72 @@ const defaultData = {
     about: { 
         text: `<div class="content-padding">
             <div class="column-grid">
-                <div class="left-col" contenteditable="true">
-                    <p>Valencia, España</p>
+                <div class="left-col">
+                    <p>Carrer del cavallers 14,<br>alfara del patriarca, Valencia,<br>España</p>
                     <p>le.verea2233@gmail.com<br>@le.verea</p>
                 </div>
-                <div class="right-col" contenteditable="true">
+                <div class="right-col">
                     <p>Hay algo en la oscuridad que dice más que cualquier explicación.</p>
                     <p>Trabajo con imágenes donde lo oscuro y lo humano se cruzan sin aviso. No busco claridad, busco fricción.</p>
+                    <p>Cada foto está construida. Nada es casual. Nada está ahí por estar.</p>
+                    <p>No estoy terminado.<br>Pero lo que ya existe, habla solo.</p>
                 </div>
             </div>
             <div class="column-grid">
                 <div class="left-col"><span class="section-label">¿Quién soy?</span></div>
-                <div class="right-col" contenteditable="true">
-                    <p>Soy originario de Ciudad de México... Mi trabajo busca encontrar orden dentro del ruido.</p>
+                <div class="right-col">
+                    <p>Soy originario de Ciudad de México, una ciudad que no se explica, se vive. Crecer ahí significa aprender a leer el caos, el contraste, la intensidad.</p>
+                    <p>Ese entorno me formó: me enseñó a encontrar orden dentro del ruido, y significado dentro de lo que parece saturado.</p>
+                    <p>Hoy soy estudiante internacional en Valencia. Llegar aquí no fue casualidad; fue el resultado de insistir, de sostener una idea incluso cuando no era fácil.</p>
+                    <p>Sigo en proceso. Pero todo lo que hago viene de ese cruce: de dónde vengo y hacia dónde estoy construyendo.</p>
                 </div>
             </div>
             <div class="column-grid">
                 <div class="left-col"><span class="section-label">Educación</span></div>
-                <div class="right-col" contenteditable="true">
-                    <p><strong>2025 – Presente</strong><br>Grado en Comunicación Audiovisual<br>Valencia, España</p>
-                    <p><strong>2022 – 2025</strong><br>Bachillerato Prepa Ibero, CDMX</p>
+                <div class="right-col">
+                    <p><strong>2025 – Presente</strong><br>Grado en Comunicación Audiovisual<br>Universidad CEU Cardenal Herrera, Valencia, España</p>
+                    <p><strong>Diploma Universitario de Experto en Desarrollo Personal y Profesional para la Empleabilidad</strong><br>Universidad CEU Cardenal Herrera</p>
+                    <p><strong>2022 – 2025</strong><br>Bachillerato<br>Prepa Ibero, Ciudad de México, México</p>
                 </div>
             </div>
         </div>`
     },
     experience: {
-        text_yogurt: `<div class="content-padding cargo-line-block"><div class="cargo-header-grid" contenteditable="true"><div><strong>01 YOGÜRT</strong><br>Cofundador</div><div>CDMX, 2022</div><div>Productora independiente enfocada en la creación de cortometrajes...</div></div></div>`,
-        text_prod2: `<div class="content-padding cargo-line-block" style="margin-top: 20px;"><div class="cargo-header-grid" contenteditable="true"><div><strong>02 ROVERS AT LARGE</strong><br>Dirección</div><div>Valencia, 2026</div><div>Descripción Cargo.</div></div></div>`
+        text_yogurt: `<div class="content-padding cargo-line-block">
+            <div class="cargo-header-grid">
+                <div><strong>01 YOGÜRT</strong><br>Cofundador</div>
+                <div>Ciudad de México, 2022</div>
+                <div>YOGÜRT una productora audiovisual independiente enfocada en la creación de cortometrajes y piezas experimentales con una identidad visual propia. Dentro del proyecto me encargué de la dirección creativa, el desarrollo de ideas y guiones, así como de la producción y edición de los trabajos. También coordiné procesos de rodaje y colaboraciones con otros creadores, impulsando un enfoque autoral en cada pieza. El proyecto funciona como un espacio de exploración narrativa y estética, donde he podido consolidar habilidades de dirección, storytelling y construcción de proyectos audiovisuales desde cero.</div>
+            </div>
+        </div>`,
+        text_prod2: `<div class="content-padding cargo-line-block" style="margin-top: 20px;">
+            <div class="cargo-header-grid">
+                <div><strong>02 Rovers-At-Large</strong><br>Fundador</div>
+                <div>Ciudad de México, 2024</div>
+                <div>Rovers-At-Large es un colectivo y plataforma editorial fundada como un espacio de visibilización de la otredad dentro de escenas creativas contemporáneas. Funciona como una revista multidisciplinaria que reúne fotografía, textos, divulgación cultural, guiones para cortometrajes en búsqueda de financiamiento, así como propuestas de moda y diseño gráfico de artistas emergentes. El proyecto se sitúa principalmente en ciudades con escenas artísticas vibrantes y alternativas, como la CDMX, conectando con una comunidad joven de 18 a 30 años vinculada a disciplinas creativas y culturales. Su enfoque se centra en la exploración de identidades no normativas, lo estético de la contradicción y la construcción de una comunidad alrededor de lo "otro", entendido como aquello fuera del estándar visual, social y cultural. Dentro del proyecto me encargué de la dirección general, la curaduría de contenidos y la coordinación de colaboradores, desarrollando una plataforma con una fuerte carga estética, conceptual y cultural.</div>
+            </div>
+        </div>`
     },
-    architecture: { images: Array.from({length: 20}, (_, i) => `img/architecture/${i+1}.jpg`) },
-    artistic: { images: Array.from({length: 20}, (_, i) => `img/artistic/${i+1}.jpg`) },
+    architecture: { images: Array.from({length: 20}, (_, i) => `img/architecture/${i+1}.JPG`) },
+    artistic: { images: Array.from({length: 20}, (_, i) => `img/artistic/${i+1}.JPG`) },
     modeling: { 
         images: [
-            "img/modeling/DSC_6197.jpg", "img/modeling/DSC_6199.jpg", "img/modeling/DSC_6243.jpg", "img/modeling/DSC_7557.jpg", "img/modeling/DSC_7560.jpg",
-            "img/modeling/DSC_7652-3.jpg", "img/modeling/DSC_7685.jpg", "img/modeling/DSC_7697.jpg", "img/modeling/DSC_7699.jpg", "img/modeling/DSC_7747.jpg",
-            "img/modeling/DSC_7750.jpg", "img/modeling/DSC_7773.jpg", "img/modeling/DSC_7822.jpg", "img/modeling/DSC_7920.jpg", "img/modeling/DSC_8032.jpg",
-            "img/modeling/DSC_8060.jpg", "img/modeling/DSC_8114.jpg", "img/modeling/DSC_8201.jpg", "img/modeling/DSC_8308.jpg", "img/modeling/DSC_8358.jpg",
-            "img/modeling/IMG_3799.jpg", "img/modeling/IMG_3812.jpg", "img/modeling/IMG_3855.jpg", "img/modeling/IMG_3883.jpg"
+            "img/modeling/DSC_6197.JPG", "img/modeling/DSC_6199.JPG", "img/modeling/DSC_6243.JPG", "img/modeling/DSC_7557.JPG", "img/modeling/DSC_7560.JPG",
+            "img/modeling/DSC_7652-3.JPG", "img/modeling/DSC_7685.JPG", "img/modeling/DSC_7697.JPG", "img/modeling/DSC_7699.JPG", "img/modeling/DSC_7747.JPG",
+            "img/modeling/DSC_7750.JPG", "img/modeling/DSC_7773.JPG", "img/modeling/DSC_7822.JPG", "img/modeling/DSC_7920.JPG", "img/modeling/DSC_8032.JPG",
+            "img/modeling/DSC_8060.JPG", "img/modeling/DSC_8114.JPG", "img/modeling/DSC_8201.JPG", "img/modeling/DSC_8308.JPG", "img/modeling/DSC_8358.JPG",
+            "img/modeling/IMG_3799.JPG", "img/modeling/IMG_3812.JPG", "img/modeling/IMG_3855.JPG", "img/modeling/IMG_3883.JPG"
         ] 
     },
     exp_yogurt: { 
         images: [
             "img/experience/yogurt/1.png", "img/experience/yogurt/2 \"Cultura le llaman\".mp4", 
             "img/experience/yogurt/3\"Ciudades Desiertas \".mp4", "img/experience/yogurt/4 \"Hambre\".mp4", 
-            "img/experience/yogurt/5.jpg", "img/experience/yogurt/6 \"personal docente\".mp4", 
-            "img/experience/yogurt/7 \"Muriendo de Envidia\".mp4", "img/experience/yogurt/8.jpg"
+            "img/experience/yogurt/5.JPG", "img/experience/yogurt/6 \"personal docente\".mp4", 
+            "img/experience/yogurt/7 \"Muriendo de Envidia\".mp4", "img/experience/yogurt/8.JPG"
         ] 
     },
-    exp_prod2: { images: Array.from({length: 8}, (_, i) => `img/experience/rovers/${i+1}.jpg`) },
+    exp_prod2: { images: Array.from({length: 8}, (_, i) => `img/experience/rovers/${i+1}.JPG`) },
     iconPositions: {},
     iconImages: {
         about: "img/icons/about me.png",
@@ -71,12 +89,12 @@ const defaultData = {
     wallpaper: ''
 };
 
+// Forzar datos limpios
 let currentData = defaultData;
 
 // ==========================================
-// 2. FUNCIONES DE SISTEMA
+// 2. LÓGICA DE FUNCIONAMIENTO
 // ==========================================
-
 function saveData() { localStorage.setItem(DB_KEY, JSON.stringify(currentData)); }
 
 setInterval(() => {
@@ -91,7 +109,7 @@ function applyWallpaper() {
 
 function applyIconImages() {
    Object.keys(currentData.iconImages).forEach(type => {
-       const img = document.getElementById(`img-${type}`);
+       const img = document.getElementById(`img-${type}`) || document.getElementById(type);
        if (img) img.src = currentData.iconImages[type];
    });
 }
@@ -102,24 +120,24 @@ function closeWindow(id) { document.getElementById(id).classList.add('hidden'); 
 function displayContent(type) {
     const view = document.getElementById('retro-window');
     const body = document.getElementById('window-body');
-    const saveBtn = document.getElementById('save-on-spot');
     activeType = type;
     
     view.classList.remove('hidden');
-    document.getElementById('window-title').textContent = type.toUpperCase();
+    document.getElementById('window-title').textContent = type === 'about' ? 'ACERCA DE MÍ' : type === 'experience' ? 'EXPERIENCIA PROPIA' : type.toUpperCase();
     
+    if(type === 'experience') view.style.width = '1150px';
+    else if(type === 'about') view.style.width = '700px'; // Un poco más ancho para tu nuevo texto
+    else view.style.width = '800px';
+
     if(type === 'about') {
-        saveBtn.style.display = isViewMode ? 'none' : 'block'; 
         body.innerHTML = currentData.about.text;
     } else if(type === 'experience') {
-        saveBtn.style.display = isViewMode ? 'none' : 'block';
         body.innerHTML = `${currentData.experience.text_yogurt}<div class="gallery-section">${renderMediaGrid('exp_yogurt', 'experience-grid')}</div>${currentData.experience.text_prod2}<div class="gallery-section">${renderMediaGrid('exp_prod2', 'experience-grid')}</div>`;
     } else if(type === 'insta') {
         window.open("https://instagram.com/le.verea", '_blank'); view.classList.add('hidden');
     } else if(type === 'contact') {
         document.getElementById('window-contact').classList.remove('hidden'); view.classList.add('hidden');
     } else {
-        saveBtn.style.display = 'none';
         body.innerHTML = `<div class="gallery-section">${renderMediaGrid(type, 'standard-grid')}</div>`;
     }
     initGalleryReorder();
@@ -145,13 +163,10 @@ function openViewer(src) {
     if(src.toLowerCase().endsWith('.mp4')) { v.src = src; v.classList.remove('hidden'); i.classList.add('hidden'); v.play(); } 
     else { i.src = src; i.classList.remove('hidden'); v.classList.add('hidden'); }
 }
-function closeViewer() { document.getElementById('media-viewer').classList.add('hidden'); document.getElementById('viewer-video').pause(); }
 
 function initDesktopIcons() {
     const icons = document.querySelectorAll('.draggable-icon');
     icons.forEach(icon => {
-        const pos = currentData.iconPositions[icon.id];
-        if (pos) { icon.style.top = pos.top; icon.style.left = pos.left; icon.style.right = 'auto'; icon.style.bottom = 'auto'; }
         icon.onmousedown = function(e) {
             let moved = false; let startX = e.clientX; let startY = e.clientY;
             let shiftX = e.clientX - icon.getBoundingClientRect().left;
@@ -166,36 +181,12 @@ function initDesktopIcons() {
             document.addEventListener('mousemove', onMouseMove);
             document.onmouseup = function() {
                 document.removeEventListener('mousemove', onMouseMove);
-                if (moved && !isViewMode) { currentData.iconPositions[icon.id] = { top: icon.style.top, left: icon.style.left }; saveData(); }
-                else if (!moved) { displayContent(icon.getAttribute('data-type')); }
+                if (!moved) displayContent(icon.getAttribute('data-type'));
                 icon.classList.remove('dragging-desktop'); document.onmouseup = null;
             };
         };
     });
 }
-
-function toggleViewMode() {
-    isViewMode = !isViewMode;
-    const sidebar = document.getElementById('sidebar-editor');
-    const btn = document.getElementById('publish-btn');
-    const saveButtons = document.querySelectorAll('button[onclick*="saveData"], .icon-customizer-ui, #save-on-spot');
-    
-    if (isViewMode) {
-        if (sidebar) sidebar.style.display = 'none';
-        saveButtons.forEach(b => b.style.display = 'none');
-        btn.innerText = "🛠️ VOLVER A EDITOR";
-        btn.style.background = "#28c840"; btn.style.color = "white";
-    } else {
-        if (sidebar) sidebar.style.display = 'block';
-        saveButtons.forEach(b => b.style.display = 'block');
-        btn.innerText = "🚀 PUBLICAR (MODO VISTA)";
-        btn.style.background = "#c0c0c0"; btn.style.color = "black";
-    }
-    document.querySelectorAll('.draggable-icon').forEach(icon => { icon.style.cursor = isViewMode ? 'pointer' : 'move'; });
-}
-
-// Iniciar sistema
-window.onload = () => { applyWallpaper(); applyIconImages(); initDesktopIcons(); };
 
 function initGalleryReorder() {
     const items = document.querySelectorAll('.gallery-item');
@@ -204,3 +195,15 @@ function initGalleryReorder() {
         item.addEventListener('dragend', () => item.classList.remove('dragging'));
     });
 }
+
+function toggleViewMode() {
+    isViewMode = !isViewMode;
+    const sidebar = document.getElementById('sidebar-editor');
+    const btn = document.getElementById('publish-btn');
+    if (sidebar) sidebar.style.display = isViewMode ? 'none' : 'block';
+    btn.innerText = isViewMode ? "🛠️ VOLVER A EDITOR" : "🚀 PUBLICAR (MODO VISTA)";
+    btn.style.background = isViewMode ? "#28c840" : "#c0c0c0";
+    btn.style.color = isViewMode ? "white" : "black";
+}
+
+window.onload = () => { applyWallpaper(); applyIconImages(); initDesktopIcons(); };
