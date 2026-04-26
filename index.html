@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leonardo Verea | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="desktop">
+        <div class="post-it">
+            <p><strong>Hola.</strong></p>
+            <p>Gracias por visitar mi portafolio interactivo. Usa los iconos para navegar por mis proyectos y archivos.</p>
+            <p>Contacto:<br>
+            <a href="mailto:le.verea2233@gmail.com">le.verea2233@gmail.com</a></p>
+            <p>Valencia, 2026.</p>
+            <p><em>— Le.</em></p>
+        </div>
+
+        <div class="draggable-icon pos-about" data-type="about">
+            <img src="img/icons/about me.png">
+            <span>About_me.rtf</span>
+        </div>
+
+        <div class="draggable-icon pos-arch" data-type="architecture">
+            <img src="img/icons/arquitectura/modelaje/arte.png">
+            <span>Arquitectura</span>
+        </div>
+
+        <div class="draggable-icon pos-artistic" data-type="artistic">
+            <img src="img/icons/arquitectura/modelaje/arte.png">
+            <span>Artístico.jpg</span>
+        </div>
+
+        <div class="draggable-icon pos-model" data-type="modeling">
+            <img src="img/icons/arquitectura/modelaje/arte.png">
+            <span>Modelaje</span>
+        </div>
+
+        <div class="draggable-icon pos-exp" data-type="experience">
+            <img src="img/icons/experiencia previa.png">
+            <span>Exp_Previa.exe</span>
+        </div>
+
+        <div class="draggable-icon pos-insta" data-type="insta">
+            <img src="img/icons/instagram.png">
+            <span>Instagram</span>
+        </div>
+
+        <div class="draggable-icon pos-contact" data-type="contact">
+            <img src="img/icons/contact.png">
+            <span>Contacto</span>
+        </div>
+
+        <div id="retro-window" class="window hidden">
+            <div class="window-header">
+                <span id="window-title">SISTEMA</span>
+                <div class="close-btn" onclick="closeWindow('retro-window')">×</div>
+            </div>
+            <div id="window-body"></div>
+        </div>
+
+        <div id="media-viewer" class="window hidden">
+            <div class="window-header">
+                <span>VIEWER</span>
+                <div class="close-btn" onclick="closeWindow('media-viewer')">×</div>
+            </div>
+            <div id="viewer-content">
+                <img id="viewer-img" src="" class="hidden">
+                <video id="viewer-video" src="" controls class="hidden"></video>
+            </div>
+        </div>
+    </div>
+
+    <div id="taskbar">
+        <div class="start-button">
+            <img src="img/icons/about me.png" style="width: 16px;">
+            <span>Inicio</span>
+        </div>
+        <div id="live-clock">00:00</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
