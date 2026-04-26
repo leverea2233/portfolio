@@ -196,3 +196,11 @@ function toggleViewMode() {
 
 // Iniciar sistema
 window.onload = () => { applyWallpaper(); applyIconImages(); initDesktopIcons(); };
+
+function initGalleryReorder() {
+    const items = document.querySelectorAll('.gallery-item');
+    items.forEach(item => {
+        item.addEventListener('dragstart', () => item.classList.add('dragging'));
+        item.addEventListener('dragend', () => item.classList.remove('dragging'));
+    });
+}
