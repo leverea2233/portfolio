@@ -75,7 +75,12 @@ const defaultData = {
 // ==========================================
 // 2. LÓGICA DE VENTANAS
 // ==========================================
-function closeWindow(id) { document.getElementById(id).classList.add('hidden'); activeType = null; }
+function closeWindow(id) { 
+    document.getElementById(id).classList.add('hidden'); 
+    document.body.classList.remove('viewer-open'); // Quita el difuminado
+    activeType = null; 
+}
+
 
 function displayContent(type) {
     const view = document.getElementById('retro-window');
@@ -117,8 +122,18 @@ function renderGrid(type) {
 }
 
 function openViewer(src) {
-    const v = document.getElementById('media-viewer'); v.classList.remove('hidden');
-    document.getElementById('viewer-img').src = src; document.getElementById('viewer-img').classList.remove('hidden');
+    const v = document.getElementById('media-viewer');
+    const img = document.getElementById('viewer-img');
+    
+    // 1. Mostrar la ventana y activar el fondo oscuro
+    v.classList.remove('hidden');
+    document.body.classList.add('viewer-open');
+    
+    // 2. Cargar la imagen
+    img.src = src;
+    img.classList.remove('hidden');
+    
+    console.log("Abriendo imagen:", src);
 }
 
 window.onload = () => {
