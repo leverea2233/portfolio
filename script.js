@@ -56,26 +56,26 @@ const defaultData = {
             </div>
         </div>`
     },
-    architecture: { images: Array.from({length: 20}, (_, i) => `img/architecture/${i+1}.JPG`) },
-    artistic: { images: Array.from({length: 20}, (_, i) => `img/artistic/${i+1}.JPG`) },
+    architecture: { images: Array.from({length: 20}, (_, i) => `img/architecture/${i+1}.jpg`) },
+    artistic: { images: Array.from({length: 20}, (_, i) => `img/artistic/${i+1}.jpg`) },
     modeling: { 
         images: [
-            "img/modeling/DSC_6197.JPG", "img/modeling/DSC_6199.JPG", "img/modeling/DSC_6243.JPG", "img/modeling/DSC_7557.JPG", "img/modeling/DSC_7560.JPG",
-            "img/modeling/DSC_7652-3.JPG", "img/modeling/DSC_7685.JPG", "img/modeling/DSC_7697.JPG", "img/modeling/DSC_7699.JPG", "img/modeling/DSC_7747.JPG",
-            "img/modeling/DSC_7750.JPG", "img/modeling/DSC_7773.JPG", "img/modeling/DSC_7822.JPG", "img/modeling/DSC_7920.JPG", "img/modeling/DSC_8032.JPG",
-            "img/modeling/DSC_8060.JPG", "img/modeling/DSC_8114.JPG", "img/modeling/DSC_8201.JPG", "img/modeling/DSC_8308.JPG", "img/modeling/DSC_8358.JPG",
-            "img/modeling/IMG_3799.JPG", "img/modeling/IMG_3812.JPG", "img/modeling/IMG_3855.JPG", "img/modeling/IMG_3883.JPG"
+            "img/modeling/DSC_6197.jpg", "img/modeling/DSC_6199.jpg", "img/modeling/DSC_6243.jpg", "img/modeling/DSC_7557.jpg", "img/modeling/DSC_7560.jpg",
+            "img/modeling/DSC_7652-3.jpg", "img/modeling/DSC_7685.jpg", "img/modeling/DSC_7697.jpg", "img/modeling/DSC_7699.jpg", "img/modeling/DSC_7747.jpg",
+            "img/modeling/DSC_7750.jpg", "img/modeling/DSC_7773.jpg", "img/modeling/DSC_7822.jpg", "img/modeling/DSC_7920.jpg", "img/modeling/DSC_8032.jpg",
+            "img/modeling/DSC_8060.jpg", "img/modeling/DSC_8114.jpg", "img/modeling/DSC_8201.jpg", "img/modeling/DSC_8308.jpg", "img/modeling/DSC_8358.jpg",
+            "img/modeling/IMG_3799.jpg", "img/modeling/IMG_3812.jpg", "img/modeling/IMG_3855.jpg", "img/modeling/IMG_3883.jpg"
         ] 
     },
     exp_yogurt: { 
         images: [
             "img/experience/yogurt/1.png", "img/experience/yogurt/2 \"Cultura le llaman\".mp4", 
             "img/experience/yogurt/3\"Ciudades Desiertas \".mp4", "img/experience/yogurt/4 \"Hambre\".mp4", 
-            "img/experience/yogurt/5.JPG", "img/experience/yogurt/6 \"personal docente\".mp4", 
-            "img/experience/yogurt/7 \"Muriendo de Envidia\".mp4", "img/experience/yogurt/8.JPG"
+            "img/experience/yogurt/5.jpg", "img/experience/yogurt/6 \"personal docente\".mp4", 
+            "img/experience/yogurt/7 \"Muriendo de Envidia\".mp4", "img/experience/yogurt/8.jpg"
         ] 
     },
-    exp_prod2: { images: Array.from({length: 8}, (_, i) => `img/experience/rovers/${i+1}.JPG`) },
+    exp_prod2: { images: Array.from({length: 8}, (_, i) => `img/experience/rovers/${i+1}.jpg`) },
     iconPositions: {},
     iconImages: {
         about: "img/icons/about me.png",
@@ -89,12 +89,11 @@ const defaultData = {
     wallpaper: ''
 };
 
-// Forzar datos limpios
-let currentData = defaultData;
-
 // ==========================================
 // 2. LÓGICA DE FUNCIONAMIENTO
 // ==========================================
+let currentData = defaultData;
+
 function saveData() { localStorage.setItem(DB_KEY, JSON.stringify(currentData)); }
 
 setInterval(() => {
@@ -126,7 +125,7 @@ function displayContent(type) {
     document.getElementById('window-title').textContent = type === 'about' ? 'ACERCA DE MÍ' : type === 'experience' ? 'EXPERIENCIA PROPIA' : type.toUpperCase();
     
     if(type === 'experience') view.style.width = '1150px';
-    else if(type === 'about') view.style.width = '700px'; // Un poco más ancho para tu nuevo texto
+    else if(type === 'about') view.style.width = '700px'; 
     else view.style.width = '800px';
 
     if(type === 'about') {
