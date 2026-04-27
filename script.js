@@ -100,7 +100,18 @@ const defaultData = {
         </div>`,
         images: Array.from({length: 24}, (_, i) => `img/modeling/${i+1}.jpg`) 
     },
-    exp_yogurt: { images: Array.from({length: 8}, (_, i) => `img/experience/yogurt/${i+1}.jpg`) },
+    exp_yogurt: { 
+    images: [
+        "img/experience/yogurt/1.png",
+        "img/experience/yogurt/2.mp4",
+        "img/experience/yogurt/3.mp4",
+        "img/experience/yogurt/4.mp4",
+        "img/experience/yogurt/5.jpg",
+        "img/experience/yogurt/6.mp4",
+        "img/experience/yogurt/7.mp4",
+        "img/experience/yogurt/8.jpg"
+    ] 
+},
     exp_prod2: { images: Array.from({length: 8}, (_, i) => `img/experience/rovers/${i+1}.jpg`) }
 };
 
@@ -152,26 +163,43 @@ function displayContent(type) {
 
 function renderGrid(type) {
     const items = defaultData[type]?.images || [];
-    return items.map(src => `
-        <div class="gallery-item" onclick="openViewer('${src}')">
-            <img src="${src}">
-            <span>${src.split('/').pop()}</span>
-        </div>`).join('');
+    return items.map(src => {
+        const isVideo = src.toLowerCase().endsWith('.mp4');
+        
+        if (isVideo) {
+            return `
+                <div class="gallery-item" onclick="openViewer('${src}', 'video')">
+                    <video src="${src}" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                    <span>${src.split('/').pop()}</span>
+                </div>`;
+        }
+        
+        return `
+            <div class="gallery-item" onclick="openViewer('${src}', 'image')">
+                <img src="${src}">
+                <span>${src.split('/').pop()}</span>
+            </div>`;
+    }).join('');
 }
 
-function openViewer(src) {
+function openViewer(src, type) {
     const v = document.getElementById('media-viewer');
     const img = document.getElementById('viewer-img');
+    const vid = document.getElementById('viewer-video');
     
-    // 1. Mostrar la ventana y activar el fondo oscuro
     v.classList.remove('hidden');
     document.body.classList.add('viewer-open');
-    
-    // 2. Cargar la imagen
-    img.src = src;
-    img.classList.remove('hidden');
-    
-    console.log("Abriendo imagen:", src);
+
+    if (type === 'video') {
+        img.classList.add('hidden');
+        vid.classList.remove('hidden');
+        vid.src = src;
+        vid.play();
+    } else {
+        vid.classList.add('hidden');
+        img.classList.remove('hidden');
+        img.src = src;
+    }
 }
 
 window.onload = () => {
