@@ -57,16 +57,48 @@ const defaultData = {
         </div>`
     },
     // Lógica de imágenes (20 por carpeta)
-    architecture: { images: Array.from({length: 20}, (_, i) => `img/architecture/${i+1}.jpg`) },
-    artistic: { images: Array.from({length: 20}, (_, i) => `img/artistic/${i+1}.jpg`) },
+   architecture: { 
+        text: `
+        <div class="content-padding gallery-header">
+            <div class="column-grid no-margin">
+                <div class="left-col"><span class="section-label">PROYECTO</span><br>ARQUITECTURA Y ESPACIO</div>
+                <div class="mid-col"><span class="section-label">ENFOQUE</span><br>ESCENARIOS URBANOS</div>
+                <div class="right-col">
+                    <span class="section-label">MANIFIESTO</span><br>
+                    Una exploración visual de la huella que los humanos hemos dejado en nuestros espacios, pues ¿qué es la arquitectura si no grandes escenarios que hemos montado a lo largo del tiempo y en los cuales actuamos día con día?<br><br>
+                    Retrato arquitectura porque me interesan todas las historias que estos escenarios tienen que contar; tanto lo que se ha vivido en sus interiores como lo que pueden llegar a representar para las personas. Hay lugares donde la gente hace su día a día con normalidad, pero que para los ojos que lo ven por primera vez se vuelven fascinantes. La próxima vez que salgas a la calle, detente a observar los edificios y las estructuras: te aseguro que tienen muchas historias que contar.
+                </div>
+            </div>
+        </div>`,
+        images: Array.from({length: 20}, (_, i) => `img/architecture/${i+1}.jpg`) 
+    },
+    artistic: { 
+        text: `
+        <div class="content-padding gallery-header">
+            <div class="column-grid no-margin">
+                <div class="left-col"><span class="section-label">SERIE</span><br>LO SAGRADO Y LO PROFANO</div>
+                <div class="mid-col"><span class="section-label">TÉCNICA</span><br>ALTO CONTRASTE / MINIMALISMO</div>
+                <div class="right-col">
+                    <span class="section-label">CONCEPTO</span><br>
+                    En estas series, exploro la intersección entre lo sagrado y lo profano. Reduzco la imagen a su esencia a través de una estética minimalista y de alto contraste para cuestionar la naturaleza del ídolo; documento cómo lo religioso y lo humano colisionan, transformando objetos cotidianos y figuras devocionales en focos de tensión visual. Busco el punto donde la fe se encuentra con la fragilidad, utilizando la oscuridad y la luz no como vacíos, sino como el espacio donde el significado está en su estado más puro.
+                </div>
+            </div>
+        </div>`,
+        images: Array.from({length: 20}, (_, i) => `img/artistic/${i+1}.jpg`) 
+    },
     modeling: { 
-        images: [
-            "img/modeling/dsc_6197.jpg", "img/modeling/dsc_6199.jpg", "img/modeling/dsc_6243.jpg", "img/modeling/dsc_7557.jpg", "img/modeling/dsc_7560.jpg",
-            "img/modeling/dsc_7652-3.jpg", "img/modeling/dsc_7685.jpg", "img/modeling/dsc_7697.jpg", "img/modeling/dsc_7699.jpg", "img/modeling/dsc_7747.jpg",
-            "img/modeling/dsc_7750.jpg", "img/modeling/dsc_7773.jpg", "img/modeling/dsc_7822.jpg", "img/modeling/dsc_7920.jpg", "img/modeling/dsc_8032.jpg",
-            "img/modeling/dsc_8060.jpg", "img/modeling/dsc_8114.jpg", "img/modeling/dsc_8201.jpg", "img/modeling/dsc_8308.jpg", "img/modeling/dsc_8358.jpg",
-            "img/modeling/img_3799.jpg", "img/modeling/img_3812.jpg", "img/modeling/img_3855.jpg", "img/modeling/img_3883.jpg"
-        ] 
+        text: `
+        <div class="content-padding gallery-header">
+            <div class="column-grid no-margin">
+                <div class="left-col"><span class="section-label">PROYECTO</span><br>MODELAJE / RETRATO CRUDO</div>
+                <div class="mid-col"><span class="section-label">LOCALIZACIÓN</span><br>VALENCIA, ESPAÑA</div>
+                <div class="right-col">
+                    <span class="section-label">MANIFIESTO</span><br>
+                    Mi enfoque no busca cumplir con la estética establecida, busca retratar la verdad del individuo y del momento. Utilizo iluminación directa y flash frontal para generar una imagen cruda, ya sea congelando la identidad frente al caos de la ciudad o haciéndola destacar en la frialdad de la noche. A través de exposiciones largas, barridos de luz y grano, logro aportar dinamismo y una atmósfera orgánica. No busco poses perfectas, sino construir una narrativa donde el individuo y su entorno colisionan con total honestidad.
+                </div>
+            </div>
+        </div>`,
+        images: Array.from({length: 24}, (_, i) => `img/modeling/${i+1}.jpg`) 
     },
     exp_yogurt: { images: Array.from({length: 8}, (_, i) => `img/experience/yogurt/${i+1}.jpg`) },
     exp_prod2: { images: Array.from({length: 8}, (_, i) => `img/experience/rovers/${i+1}.jpg`) }
