@@ -170,3 +170,53 @@ body.viewer-open #desktop::after {
 .start-button img {
     display: none;
 }
+
+/* --- ESTO SOLO AFECTA A TELÉFONOS, LA COMPU SE QUEDA IGUAL --- */
+@media (max-width: 768px) {
+    #desktop {
+        overflow-y: auto; /* Permite bajar si los iconos no caben */
+    }
+
+    /* Las ventanas se ajustan al ancho del celular */
+    .window {
+        width: 95vw !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+    }
+
+    /* El Post-it deja de rotar y se ajusta arriba */
+    .post-it {
+        position: relative;
+        width: 90%;
+        margin: 20px auto;
+        left: 0;
+        top: 0;
+        transform: none;
+    }
+
+    /* En el cel, 4 columnas son muchas; ponemos 2 para que se vean bien las fotos */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px;
+    }
+
+    /* La experiencia también a 2 columnas en móvil */
+    .experience-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* El texto del manifiesto se pone uno arriba de otro (vertical) */
+    .gallery-header .column-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+    }
+
+    /* Iconos un poco más chicos para que no se amontonen */
+    .draggable-icon {
+        width: 70px;
+    }
+    .draggable-icon img {
+        width: 45px;
+    }
+}
