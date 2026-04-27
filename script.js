@@ -140,7 +140,13 @@ function displayContent(type) {
         </div>`;
         view.style.width = '500px';
     } else {
-        body.innerHTML = `<div class="gallery-grid">${renderGrid(type)}</div>`;
+        // Esta línea es la clave: busca si el objeto tiene la propiedad .text
+        const introText = defaultData[type]?.text || ""; 
+        
+        body.innerHTML = `
+            ${introText}
+            <div class="gallery-grid">${renderGrid(type)}</div>
+        `;
     }
 }
 
