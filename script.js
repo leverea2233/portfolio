@@ -93,7 +93,7 @@ const defaultData = {
                 <div class="left-col"><span class="section-label">PROYECTO</span><br>MODELAJE / RETRATO CRUDO</div>
                 <div class="mid-col"><span class="section-label">LOCALIZACIÓN</span><br>VALENCIA, ESPAÑA</div>
                 <div class="right-col">
-                    <span class="section-label">MANIFIESTO</span><br>
+                    <span class="section-label">CONCEPTO</span><br>
                     Mi enfoque no busca cumplir con la estética establecida, busca retratar la verdad del individuo y del momento. Utilizo iluminación directa y flash frontal para generar una imagen cruda, ya sea congelando la identidad frente al caos de la ciudad o haciéndola destacar en la frialdad de la noche. A través de exposiciones largas, barridos de luz y grano, logro aportar dinamismo y una atmósfera orgánica. No busco poses perfectas, sino construir una narrativa donde el individuo y su entorno colisionan con total honestidad.
                 </div>
             </div>
