@@ -64,7 +64,7 @@ const defaultData = {
                 <div class="left-col"><span class="section-label">PROYECTO</span><br>ARQUITECTURA Y ESPACIO</div>
                 <div class="mid-col"><span class="section-label">ENFOQUE</span><br>ESCENARIOS URBANOS</div>
                 <div class="right-col">
-                    <span class="section-label">MANIFIESTO</span><br>
+                    <span class="section-label">CONCEPTO</span><br>
                     Una exploración visual de la huella que los humanos hemos dejado en nuestros espacios, pues ¿qué es la arquitectura si no grandes escenarios que hemos montado a lo largo del tiempo y en los cuales actuamos día con día?<br><br>
                     Retrato arquitectura porque me interesan todas las historias que estos escenarios tienen que contar; tanto lo que se ha vivido en sus interiores como lo que pueden llegar a representar para las personas. Hay lugares donde la gente hace su día a día con normalidad, pero que para los ojos que lo ven por primera vez se vuelven fascinantes. La próxima vez que salgas a la calle, detente a observar los edificios y las estructuras: te aseguro que tienen muchas historias que contar.
                 </div>
@@ -76,7 +76,7 @@ const defaultData = {
         text: `
         <div class="content-padding gallery-header">
             <div class="column-grid no-margin">
-                <div class="left-col"><span class="section-label">SERIE</span><br>LO SAGRADO Y LO PROFANO</div>
+                <div class="left-col"><span class="section-label">PROYECTO</span><br>LO SAGRADO Y LO PROFANO</div>
                 <div class="mid-col"><span class="section-label">TÉCNICA</span><br>ALTO CONTRASTE / MINIMALISMO</div>
                 <div class="right-col">
                     <span class="section-label">CONCEPTO</span><br>
