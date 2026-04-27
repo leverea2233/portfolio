@@ -141,8 +141,13 @@ function displayContent(type) {
 
     if(type === 'about') {
         body.innerHTML = defaultData.about.text;
+   // Busca esta parte exacta (línea 120 aprox) y déjala así:
     } else if(type === 'experience') {
-        body.innerHTML = defaultData.experience.text_yogurt + `<div class="gallery-grid">${renderGrid('exp_yogurt')}</div>` + defaultData.experience.text_prod2 + `<div class="gallery-grid">${renderGrid('exp_prod2')}</div>`;
+        body.innerHTML = 
+            defaultData.experience.text_yogurt + 
+            `<div class="gallery-grid experience-grid">${renderGrid('exp_yogurt')}</div>` + 
+            defaultData.experience.text_prod2 + 
+            `<div class="gallery-grid experience-grid">${renderGrid('exp_prod2')}</div>`;
     } else if(type === 'contact') {
         body.innerHTML = `<div class="contact-form" style="padding:40px;">
             <h3 style="margin-bottom:20px;">MAILBOX</h3>

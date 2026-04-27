@@ -54,23 +54,29 @@ body, html { width: 100%; height: 100%; overflow: hidden; background-color: #008
 .contact-form button { background: #c0c0c0; border: 2px solid; border-color: #fff #808080 #808080 #fff; padding: 10px; cursor: pointer; font-weight: bold; }
 
 /* GALERÍAS */
-
+/* GALERÍAS (Forzando 4 columnas por línea) */
 .gallery-grid { 
     display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    grid-template-columns: repeat(4, 1fr); /* Esto obliga a que siempre sean 4 */
     gap: 25px; 
     padding: 20px;
-    align-items: end; /* Alinea los nombres de archivo en la misma base */
+    align-items: end; 
+}
+
+/* GALERÍA DE EXPERIENCIA (Forzando 5 columnas por línea) */
+.experience-grid {
+    grid-template-columns: repeat(5, 1fr) !important; /* Esto obliga a que sean 5 */
+    gap: 15px;
 }
 
 .gallery-item img, 
 .gallery-item video { 
     width: 100%; 
-    height: auto;      /* Permite que crezca según sea poster o foto horizontal */
-    max-height: 400px; /* Evita que posters gigantes se salgan de control */
-    object-fit: contain; /* Asegura que se vea la pieza entera sin recortes */
+    height: auto;      
+    max-height: 400px; 
+    object-fit: contain; 
     border: 1px solid #999;
-    background: #f0f0f0; /* Fondo sutil por si la pieza es muy delgada */
+    background: #f0f0f0; 
 }
 
 /* BARRA DE TAREAS */
