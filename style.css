@@ -107,3 +107,24 @@ body, html { width: 100%; height: 100%; overflow: hidden; background-color: #008
 body.viewer-open #desktop::after {
     display: block;
 }
+
+/* DISEÑO DE 3 COLUMNAS PARA GALERÍAS */
+.gallery-header .column-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr; /* El manifiesto ocupa el doble que los otros dos */
+    gap: 30px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 15px;
+}
+
+/* Forzar que no haya espacio extra si se solicita */
+.no-margin { 
+    margin-bottom: 10px !important; 
+}
+
+/* Ajuste de fuentes para las columnas del manifiesto */
+.mid-col, .left-col, .right-col {
+    font-size: 13px;
+    line-height: 1.5;
+}
