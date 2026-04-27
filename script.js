@@ -164,6 +164,7 @@ function displayContent(type) {
             <div class="gallery-grid">${renderGrid(type)}</div>
         `;
     }
+    document.getElementById('window-body').scrollTop = 0;
 }
 
 function renderGrid(type) {

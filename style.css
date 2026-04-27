@@ -170,14 +170,34 @@ body.viewer-open #desktop::after {
 .start-button img {
     display: none;
 }
-
 /* --- ESTO SOLO AFECTA A TELÉFONOS, LA COMPU SE QUEDA IGUAL --- */
 @media (max-width: 768px) {
     #desktop {
-        overflow-y: auto; /* Permite bajar si los iconos no caben */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; /* Alinea iconos a la derecha en columna */
+        padding: 20px;
+        gap: 15px;
+        overflow-y: auto !important;
     }
 
-    /* Las ventanas se ajustan al ancho del celular */
+    /* Quita las coordenadas fijas para que los iconos no se amontonen */
+    .draggable-icon {
+        position: static !important; 
+        width: 80px !important;
+        margin-bottom: 5px;
+    }
+
+    .draggable-icon img {
+        width: 50px;
+    }
+
+    /* Ocultamos el Post-it en móvil para liberar espacio */
+    .post-it {
+        display: none !important;
+    }
+
+    /* Las ventanas ocupan casi todo el ancho del cel */
     .window {
         width: 95vw !important;
         left: 50% !important;
@@ -185,38 +205,30 @@ body.viewer-open #desktop::after {
         transform: translate(-50%, -50%) !important;
     }
 
-    /* El Post-it deja de rotar y se ajusta arriba */
-    .post-it {
-        position: relative;
-        width: 90%;
-        margin: 20px auto;
-        left: 0;
-        top: 0;
-        transform: none;
+    #window-body {
+        padding: 15px !important;
     }
 
-    /* En el cel, 4 columnas son muchas; ponemos 2 para que se vean bien las fotos */
-    .gallery-grid {
+    /* Convertimos todas las columnas en una sola fila vertical */
+    .column-grid {
+        display: block !important;
+    }
+
+    .left-col, .right-col, .mid-col {
+        width: 100% !important;
+        margin-bottom: 20px;
+        padding: 0 !important;
+    }
+
+    /* Galerías y Experiencia a 2 columnas para que se vean grandes */
+    .gallery-grid, .experience-grid {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px;
+        gap: 10px !important;
     }
 
-    /* La experiencia también a 2 columnas en móvil */
-    .experience-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-    }
-
-    /* El texto del manifiesto se pone uno arriba de otro (vertical) */
+    /* Ajuste específico para los manifiestos de las galerías */
     .gallery-header .column-grid {
         grid-template-columns: 1fr !important;
-        gap: 15px;
-    }
-
-    /* Iconos un poco más chicos para que no se amontonen */
-    .draggable-icon {
-        width: 70px;
-    }
-    .draggable-icon img {
-        width: 45px;
+        gap: 10px;
     }
 }
