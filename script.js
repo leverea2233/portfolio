@@ -187,12 +187,25 @@ function renderGrid(type) {
             </div>`;
     }).join('');
 }
-
 function openViewer(src, type) {
     const v = document.getElementById('media-viewer');
     const img = document.getElementById('viewer-img');
     const vid = document.getElementById('viewer-video');
     
+    // 1. Detección de móvil para videos
+    if (type === 'video' && window.innerWidth <= 768) {
+        vid.src = src;
+        // Forzamos el modo pantalla completa nativo del iPhone
+        if (vid.webkitEnterFullscreen) {
+            vid.webkitEnterFullscreen();
+        } else if (vid.requestFullscreen) {
+            vid.requestFullscreen();
+        }
+        vid.play();
+        return; // IMPORTANTE: Esto evita que se abra la ventana gris y suene doble
+    }
+
+    // 2. Lógica normal para computadora o para fotos
     v.classList.remove('hidden');
     document.body.classList.add('viewer-open');
 
@@ -203,6 +216,7 @@ function openViewer(src, type) {
         vid.play();
     } else {
         vid.classList.add('hidden');
+        vid.src = ""; 
         img.classList.remove('hidden');
         img.src = src;
     }
